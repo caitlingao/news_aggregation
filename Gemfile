@@ -11,6 +11,11 @@ gem 'mysql2', '>= 0.4.4'
 gem 'puma', '~> 3.11'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
+
+gem 'coffee-rails', '~> 5.0'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
+gem 'sass-rails', '~> 5.0', '>= 5.0.7'
+gem 'turbolinks', '~> 5.2'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -21,11 +26,25 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootstrap', '~> 4.3', '>= 4.3.1'
+gem 'jquery-atwho-rails', '~> 1.5', '>= 1.5.4'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
+gem 'twemoji', '~> 3.1', '>= 3.1.5'
+gem 'dropzonejs-rails', '~> 0.8.4'
+
+# User system
+gem 'devise', '~> 4.6', '>= 4.6.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
+
+# Setting
+gem 'rails-settings-cached', '~> 2.1'
+
+# Share
+gem 'social-share-button', '~> 1.2'
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.

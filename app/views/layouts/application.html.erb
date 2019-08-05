@@ -1,14 +1,68 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NewsAggregation</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <meta charset='utf-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title><%= content_for?(:title) ? yield(:title) : Setting.app_name %></title>
+    <meta name="apple-mobile-web-app-capable" content="no">
+    <meta content='True' name='HandheldFriendly' />
+    <%= stylesheet_link_tag "front", 'data-turbolinks-track': "reload" %>
+    <%= stylesheet_link_tag "turbolinks-app", 'data-turbolinks-track': 'reload' if turbolinks_app? %>
+    <%= yield :stylesheets %>
+    <%= action_cable_meta_tag %>
+    <%= csrf_meta_tag %>
+    <%= javascript_include_tag "app", 'data-turbolinks-track': "reload" %>
+    <%= yield :javascripts %>
   </head>
+  <body class="page-<%= controller_name %><%= ' infinite-scroll' if turbolinks_app? %>" data-controller-name="<%= controller_name %>">
+    <div class="header navbar navbar-expand flex-md-row bd-navbar">
+      <div class="container d-sm-flex">
+        <div class="navbar-header d-none d-md-flex" id="navbar-header" data-turbolinks-permanent>
+          <%= raw Setting.navbar_brand_html %>
+        </div>
+        <div class="navbar-nav-scroll">
+          <%= yield :header %>
+          <%= render "shared/navbar" %>
+        </div>
+        <div class="ml-auto d-md-flex">
+          <form class="navbar-form d-none d-lg-flex mr-2 form-search active" action="/search" method="GET">
+            <i class="fa btn-search fa-search"></i>
+            <input class="form-control" name="q" type="text" value="<%= params[:q] %>" placeholder="搜索内容" />
+          </form>
+           <%= render "shared/usernav" %>
+        </div>
+      </div>
+    </div>
 
-  <body>
-    <%= yield %>
+    <%= yield :sub_navbar %>
+
+    <div id="main" class="main-container container">
+      <%= content_for?(:main) ? yield(:main) : yield %>
+    </div>
+
+    <footer class="footer" id="footer" data-turbolinks-permanent>
+      <div class="container">
+        <%= raw Setting.footer_html %>
+      </div>
+    </footer>
+    <script type="text/javascript" data-turbolinks-eval="false">
+      App.root_url = "<%= main_app.root_url %>";
+      App.asset_url = "<%= Setting.upload_url -%>";
+      App.twemoji_url = "<%= Twemoji.configuration.asset_root %>";
+      App.locale = "<%= I18n.locale %>";
+      <% if current_user %>
+          App.current_user_id = <%= current_user.id %>;
+    <% end %>
+        <% if turbolinks_app? %>
+          App.turbolinks = true;
+    <% end %>
+    </script>
+    <%= yield :scripts %>
+    <script>
+      ga('create', '<%= Setting.google_analytics_key %>', 'auto');
+      ga('require', 'displayfeatures');
+      ga('send', 'pageview');
+    </script>
+    <div class="zoom-overlay"></div>
   </body>
 </html>
