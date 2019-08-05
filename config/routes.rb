@@ -21,12 +21,12 @@ Rails.application.routes.draw do
   # 比如 http://localhost:3000/huacnlee
   # get "users/city/:id", to: "users#city", as: "location_users"
   # get "users", to: "users#index", as: "users"
-  constraints(id: /[#{User::LOGIN_FORMAT}]*/) do
-    resources :users, path: "", as: "users" do
-      # member do
-      #   get :favorites
-      #   get :calendar
-      # end
-    end
-  end
+  # constraints(id: /[#{User::LOGIN_FORMAT}]*/) do
+  #   resources :users, path: "", as: "users" do
+  #     # member do
+  #     #   get :favorites
+  #     #   get :calendar
+  #     # end
+  #   end
+  # end
 end
