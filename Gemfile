@@ -38,24 +38,22 @@ gem 'devise', '~> 4.6', '>= 4.6.2'
 # upload pluge
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 gem 'letter_avatar', '~> 0.3.7'
-gem 'rucaptcha', '~> 2.5', '>= 2.5.1'
-gem 'recaptcha', '~> 5.0'
 
 # Form select 选项
 gem 'form-select', '~> 0.3.2'
 
 # Redis
-gem 'hiredis', '~> 0.6.3'
-gem 'redis', '~> 4.1', '>= 4.1.2'
-gem 'redis-namespace', '~> 1.6'
-gem 'redis-objects', '~> 1.4', '>= 1.4.3'
+# gem 'hiredis', '~> 0.6.3'
+# gem 'redis', '~> 4.1', '>= 4.1.2'
+# gem 'redis-namespace', '~> 1.6'
+# gem 'redis-objects', '~> 1.4', '>= 1.4.3'
 
 # Cache
-gem 'second_level_cache', '~> 2.4', '>= 2.4.4'
-
-# 队列
-gem 'sidekiq', '~> 5.2', '>= 5.2.7'
-gem 'sidekiq-scheduler', '~> 3.0'
+# gem 'second_level_cache', '~> 2.4', '>= 2.4.4'
+#
+# # 队列
+# gem 'sidekiq', '~> 5.2', '>= 5.2.7'
+# gem 'sidekiq-scheduler', '~> 3.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
