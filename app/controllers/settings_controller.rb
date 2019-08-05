@@ -47,17 +47,6 @@ class SettingsController < ApplicationController
     redirect_to root_path, notice: "账号删除成功。"
   end
 
-  def auth_unbind
-    provider = params[:provider]
-    if current_user.authorizations.count <= 1
-      redirect_to account_setting_path, notice: t("users.unbind_warning")
-      return
-    end
-
-    current_user.authorizations.where(provider: provider).delete_all
-    redirect_to account_setting_path, notice: t("users.unbind_success", provider: provider.titleize)
-  end
-
   private
 
     def set_user

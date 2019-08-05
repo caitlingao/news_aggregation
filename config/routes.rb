@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     passwords: :passwords,
   }
 
-  resource :setting do
+  resource :setting, only: [:show, :update, :destroy] do
     member do
       get :account
       get :password
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   # WARRING! 请保持 User 的 routes 在所有路由的最后，以便于可以让用户名在根目录下面使用，而又不影响到其他的 routes
   # 比如 http://localhost:3000/huacnlee
   # get "users/city/:id", to: "users#city", as: "location_users"
-  get "users", to: "users#index", as: "users"
+  # get "users", to: "users#index", as: "users"
   constraints(id: /[#{User::LOGIN_FORMAT}]*/) do
     resources :users, path: "", as: "users" do
       # member do
