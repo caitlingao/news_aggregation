@@ -45,6 +45,8 @@ GEM
     activerecord (6.0.0.rc2)
       activemodel (= 6.0.0.rc2)
       activesupport (= 6.0.0.rc2)
+    activerecord-mysql2-adapter (0.0.3)
+      mysql2
     activestorage (6.0.0.rc2)
       actionpack (= 6.0.0.rc2)
       activejob (= 6.0.0.rc2)
@@ -258,6 +260,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-mysql2-adapter
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.3, >= 4.3.1)
   byebug
