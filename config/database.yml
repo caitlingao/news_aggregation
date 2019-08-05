@@ -49,6 +49,4 @@ test:
 #
 production:
   <<: *default
-  database: news_aggregation_production
-  username: news_aggregation
-  password: <%= ENV['NEWS_AGGREGATION_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
