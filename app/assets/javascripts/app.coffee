@@ -1,4 +1,5 @@
-#= require jquery2
+#= require jquery3
+#= require popper
 #= require bootstrap
 #= require jquery_ujs
 #= require jquery.mobile-events

@@ -1,4 +1,7 @@
 class Node < ApplicationRecord
+  acts_as_paranoid
+  second_level_cache expires_in: 2.weeks
+
   delegate :name, to: :section, prefix: true, allow_nil: true
 
   has_many :topics

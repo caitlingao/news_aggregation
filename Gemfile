@@ -16,13 +16,6 @@ gem 'coffee-rails', '~> 5.0'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 gem 'sass-rails', '~> 5.0', '>= 5.0.7'
 gem 'turbolinks', '~> 5.2'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -32,6 +25,9 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'twemoji', '~> 3.1', '>= 3.1.5'
 gem 'dropzonejs-rails', '~> 0.8.4'
 gem 'rails-i18n', '~> 5.1', '>= 5.1.3'
+
+# Faster inserts! Insert N records in a single statement.
+gem "bulk_insert"
 
 # User system
 gem 'devise', '~> 4.6', '>= 4.6.2'
@@ -47,28 +43,24 @@ gem 'mini_magick', '~> 4.9', '>= 4.9.5', require: false
 # upload pluge
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 gem 'letter_avatar', '~> 0.3.7'
-gem 'fog-aws', '~> 3.5', '>= 3.5.2'
+
+gem 'carrierwave-qiniu', '~> 1.1', '>= 1.1.6'
 
 # Form select 选项
 gem 'form-select', '~> 0.3.2'
 
 # Redis
-# gem 'hiredis', '~> 0.6.3'
-# gem 'redis', '~> 4.1', '>= 4.1.2'
-# gem 'redis-namespace', '~> 1.6'
-# gem 'redis-objects', '~> 1.4', '>= 1.4.3'
+gem 'hiredis', '~> 0.6.3'
+gem 'redis', '~> 4.1', '>= 4.1.2'
+gem 'redis-namespace', '~> 1.6'
+gem 'redis-objects', '~> 1.4', '>= 1.4.3'
 
 # Cache
-# gem 'second_level_cache', '~> 2.4', '>= 2.4.4'
-#
-# # 队列
-# gem 'sidekiq', '~> 5.2', '>= 5.2.7'
-# gem 'sidekiq-scheduler', '~> 3.0'
+gem 'second_level_cache', '~> 2.4', '>= 2.4.4'
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-end
+# 队列
+gem 'sidekiq', '~> 5.2', '>= 5.2.7'
+gem 'sidekiq-scheduler', '~> 3.0'
 
 # Setting
 gem 'rails-settings-cached', '~> 2.1'
@@ -80,8 +72,17 @@ gem "html-pipeline-rouge_filter"
 gem "redcarpet"
 gem 'sanitize', '~> 5.0'
 
+# 搜索
+gem "elasticsearch-model", "~> 5.0.2"
+gem "elasticsearch-rails", "~> 5.0.2"
+
 # Share
 gem 'social-share-button', '~> 1.2'
+
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.

@@ -7,6 +7,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :lockable,
          :rememberable, :trackable, :validatable
 
+  second_level_cache expires_in: 2.weeks
   mount_uploader :avatar, AvatarUploader
 
   has_many :topics, dependent: :destroy
