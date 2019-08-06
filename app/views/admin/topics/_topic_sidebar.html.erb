@@ -1,0 +1,16 @@
+<div id="topic-sidebar" data-spy="affix" data-offset-bottom="65">
+  <div class="card">
+    <div class="card-body">
+      <a href="#" class="btn btn-default btn-block btn-sm btn-move-page" data-type="top"><i class="fa fa-arrow-up"></i></a>
+      <hr />
+      <div class="group opts">
+        <div>
+          <%= link_to raw("<i class='fa fa-arrow-circle-left'></i> 返回"), admin_topics_path, method: 'get', title: "返回" %>
+          <%= link_to raw('<i class="fa fa-pencil"></i> 编辑'), edit_admin_topic_path(@topic), title: "修改本帖" %>
+          <%= link_to raw('<i class="fa fa-trash"></i> 删除'), admin_topic_path(@topic.id), method: :delete, 'data-confirm' => t("common.confirm_delete"), title: "删除本帖", remote: true %>
+        </div>
+      </div>
+      <a href="#" class="btn btn-default btn-sm btn-block btn-move-page" data-type="bottom"><i class="fa fa-arrow-down"></i></a>
+    </div>
+  </div>
+</div>

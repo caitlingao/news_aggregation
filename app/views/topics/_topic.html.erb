@@ -1,0 +1,25 @@
+<% cache([topic, topic.user_avatar_raw]) do %>
+  <div class="topic media topic-<%= topic.id %>">
+    <div class="form-group avatar-preview">
+      <%= topic_banner_tag(topic, :lg) %>
+    </div>
+    <div class="form-group media-body">
+      <h3 class="media-heading">
+        <span class="title" style="font-size: 18px;font-weight: bold;">
+          <%= link_to topic.title, main_app.topic_path(topic) %>
+          <% if topic.excellent? %>
+            <i class="fa fa-diamond awesome"></i>
+          <% end %>
+        </span>
+      </h3>
+      <p style="line-height: 1.57143;"> <%= topic.summary.truncate(100, separator: ' ') %> </p>
+      <div class="info">
+        <i class="fa fa-clock-o"></i>
+        <span class="hidden-mobile">
+          •
+          <%= raw t("common.created_at", time: timeago(topic.created_at))%>
+        </span>
+      </div>
+    </div>
+  </div>
+<% end %>

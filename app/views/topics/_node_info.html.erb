@@ -1,0 +1,13 @@
+<% content_for :sub_navbar do %>
+  <div class="sub-navbar node-header hide-ios">
+    <div class="container">
+      <ul class="filter nav nav-pills">
+        <% @nodes.each do |node| %>
+          <li class="<%= ' active' if node.id == params[:category].to_i %>">
+            <%= link_to node.name, section_path(section, category: node.id) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

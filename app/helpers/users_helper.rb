@@ -3,6 +3,27 @@ require "digest/md5"
 module UsersHelper
   include LetterAvatar::AvatarHelper
 
+  # 生成用户 login 的链接，user 参数可接受 user 对象或者 字符串的 login
+  def user_name_tag(user, options = {})
+    return "匿名" if user.blank?
+
+    user_type = :user
+    login     = user
+    label     = login
+    name      = login
+
+    if user.is_a? User
+      user_type = :user
+      label     = user.name
+      name      = user.name
+    end
+
+    options[:class] ||= "#{user_type}-name"
+    options["data-name"] = name
+
+    link_to(label, "/#{name}", options)
+  end
+
   def user_avatar_width_for_size(size)
     case size
     when :xs then 16

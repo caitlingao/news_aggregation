@@ -31,9 +31,18 @@ gem 'jquery-atwho-rails', '~> 1.5', '>= 1.5.4'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'twemoji', '~> 3.1', '>= 3.1.5'
 gem 'dropzonejs-rails', '~> 0.8.4'
+gem 'rails-i18n', '~> 5.1', '>= 5.1.3'
 
 # User system
 gem 'devise', '~> 4.6', '>= 4.6.2'
+
+# page
+gem 'kaminari', '~> 1.1', '>= 1.1.1'
+
+# soft delete
+gem 'paranoia', '~> 2.4', '>= 2.4.2'
+
+gem 'mini_magick', '~> 4.9', '>= 4.9.5', require: false
 
 # upload pluge
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
@@ -62,6 +71,13 @@ end
 
 # Setting
 gem 'rails-settings-cached', '~> 2.1'
+
+# HTML Pipeline
+gem "auto-space"
+gem "html-pipeline"
+gem "html-pipeline-rouge_filter"
+gem "redcarpet"
+gem 'sanitize', '~> 5.0'
 
 # Share
 gem 'social-share-button', '~> 1.2'

@@ -1,0 +1,24 @@
+<% title_tag @topic.title %>
+
+<div class="row">
+  <div class="col-md-9">
+    <div class="topic-detail card">
+      <%= render partial: "topics/topic_info", locals: { topic: @topic } %>
+
+      <div class="card-body markdown markdown-toc">
+        <div class="form-group avatar-preview" style="margin-bottom: 30px">
+          <%= topic_banner_tag(@topic, :large) %>
+        </div>
+        <%= raw Setting.before_topic_html %>
+
+        <%= @topic.body_html %>
+
+        <%= raw Setting.after_topic_html %>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar hidden-mobile col-md-3">
+    <%= render 'topic_sidebar' %>
+  </div>
+</div>

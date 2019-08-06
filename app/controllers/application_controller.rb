@@ -3,7 +3,7 @@
 # ApplicationController
 class ApplicationController < ActionController::Base
   protect_from_forgery prepend: true
-  helper_method :turbolinks_app?, :turbolinks_ios?, :turbolinks_app_version
+  helper_method :turbolinks_app?, :turbolinks_app_version
 
   # Addition contents for etag
   etag { current_user.try(:id) }
@@ -91,17 +91,13 @@ class ApplicationController < ActionController::Base
 
     super(opts)
   end
-
-  def current_user
-    super
-  end
+  #
+  # def current_user
+  #   super
+  # end
 
   def turbolinks_app?
     @turbolinks_app ||= request.user_agent.to_s.include?("turbolinks-app")
-  end
-
-  def turbolinks_ios?
-    @turbolinks_ios ||= turbolinks_app? && request.user_agent.to_s.include?("iOS")
   end
 
   # read turbolinks app version

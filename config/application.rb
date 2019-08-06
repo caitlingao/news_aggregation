@@ -28,5 +28,20 @@ module NewsAggregation
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    config.time_zone = ENV["timezone"] || "Beijing"
+
+    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+    config.i18n.load_path += Dir[Rails.root.join("my", "locales", "*.{rb,yml}").to_s]
+    config.i18n.default_locale = "zh-CN"
+    config.i18n.available_locales = ["zh-CN", "en"]
+
+    # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.i18n.fallbacks = true
+
+    config.autoload_paths += [
+      Rails.root.join("lib")
+    ]
   end
 end
+
+# require "homeland"

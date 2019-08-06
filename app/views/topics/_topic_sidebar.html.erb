@@ -1,0 +1,19 @@
+<div id="topic-sidebar" data-spy="affix" data-offset-bottom="65">
+  <div class="card">
+    <div class="card-body">
+      <a href="#" class="btn btn-default btn-block btn-sm btn-move-page" data-type="top"><i class="fa fa-arrow-up"></i></a>
+      <div class="buttons">
+        <div class="group likes opts">
+          <%= "这里是广告" %>
+        </div>
+      </div>
+      <hr />
+      <div class="group">
+        <%= social_share_button_tag h("#{@topic.title}") %>
+      </div>
+      <hr />
+      <hr />
+      <a href="#" class="btn btn-default btn-sm btn-block btn-move-page" data-type="bottom"><i class="fa fa-arrow-down"></i></a>
+    </div>
+  </div>
+</div>

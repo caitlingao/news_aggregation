@@ -7,8 +7,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :lockable,
          :rememberable, :trackable, :validatable
 
-  # has_many :topics, dependent: :destroy
-  # has_many :photos
+  mount_uploader :avatar, AvatarUploader
+
+  has_many :topics, dependent: :destroy
+  has_many :photos
 
   enum state: { deleted: -1, normal: 1, blocked: 2 }
   validates :name, length: { maximum: 20 }
@@ -23,6 +25,10 @@ class User < ApplicationRecord
 
   def fullname
     name
+  end
+
+  def admin?
+    Setting.has_admin?(email)
   end
 
   def letter_avatar_url(size)

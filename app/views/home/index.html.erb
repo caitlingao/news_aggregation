@@ -1,1 +1,23 @@
-<p> this is home page </p>
+<% title_tag(@page_title || t('menu.topics')) %>
+
+<div class="row">
+  <div class="col-md-9">
+    <% @topics.each do |key, value| %>
+      <div class="home_suggest_topics card">
+        <div class="card-header hidden-mobile">
+          <% node = Node.find(key) %>
+          <%= link_to raw("<i class='pull-right fa fa-arrow-right'></i> #{node.name}"), section_path(node.section, category: key) %>
+        </div>
+        <div class="topics topics-<%= action_name %> card">
+
+          <div class="card-body item-list">
+            <%= render partial: '/topics/topic', collection: value %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="sidebar col-md-3">
+    <%= render "topics/sidebar_for_topic_index" %>
+  </div>
+</div>

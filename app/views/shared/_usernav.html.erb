@@ -2,11 +2,20 @@
   <% if current_user %>
     <li class="nav-item dropdown dropdown-avatar">
       <a href="#" class="dropdown-toggle nav-link" id="navbar-user-menu" data-toggle="dropdown" role="button" aria-expanded="false">
-        <%#= user_avatar_tag(current_user, :sm, link: false) %>
+        <%= user_avatar_tag(current_user, :sm, link: false) %>
       </a>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-user-menu">
         <div class="dropdown-divider"></div>
         <%= link_to t("menu.edit_account_path"), main_app.setting_path, class: "dropdown-item" %>
+
+        <% if admin? %>
+          <div class="dropdown-divider"></div>
+          <% if params[:controller].start_with?("admin/") %>
+            <%= link_to "回到前台", main_app.root_path, class: "dropdown-item" %>
+          <% else %>
+            <%= link_to "管理后台", main_app.admin_root_path, class: "dropdown-item" %>
+          <% end %>
+        <% end %>
 
         <div class="dropdown-divider"></div>
         <%= link_to t("common.logout"), main_app.destroy_user_session_path, method: "delete", class: "dropdown-item" %>

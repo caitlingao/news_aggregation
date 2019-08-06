@@ -1,0 +1,62 @@
+<%= form_for [:admin, @user], url: admin_user_path(@user) do |f| %>
+  <%= render 'shared/error_messages', target: @user %>
+  <div class="form-group">
+    <%= f.label :login %>
+    <%= f.text_field :login, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= user_avatar_tag(@user, :lg) %>
+  </div>
+
+    <div class="form-group">
+      <%= f.label :sign_in_count %>
+      <%= f.text_field :sign_in_count, class: "form-control", readonly: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :last_sign_in_at %>
+      <%= f.text_field :last_sign_in_at, class: "form-control", readonly: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :current_sign_in_at %>
+      <%= f.text_field :current_sign_in_at, class: "form-control", readonly: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :last_sign_in_ip %>
+      <%= f.text_field :last_sign_in_ip, class: "form-control", readonly: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :current_sign_in_ip %>
+      <%= f.text_field :current_sign_in_ip, class: "form-control", readonly: true %>
+    </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <%= f.submit t("common.save"), class: "btn btn-block btn-primary", 'data-disable-with' => t("common.saving") %>
+    </div>
+    <div class="col-sm-6">
+      <% if !@user.deleted? %>
+        <%= link_to '删除此用户', admin_user_path(@user.id), 'data-confirm' => '警告！此动作无法撤销，确定要删除么?', method: :delete, class: "btn btn-danger"  %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

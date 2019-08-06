@@ -1,13 +1,11 @@
 <ul id="main-nav-menu" class="navbar-nav d-flex">
-  <!--
-  <%# Section.all.each do |section| %>
+  <% Section.all.each do |section| %>
     <li class="nav-item">
-      <%# if section.id == params[:id].to_i %>
-        <%#= link_to section.name, section_path(section, category: section.nodes.order(sort: :desc, id: :desc)&.first&.id), class: "nav-link active" %>
-      <%# else %>
-        <%#= link_to section.name, section_path(section, category: section.nodes.order(sort: :desc, id: :desc)&.first&.id), class: "nav-link " %>
-      <%# end %>
+      <% if section.id == params[:id].to_i %>
+        <%= link_to section.name, section_path(section, category: section.nodes.order(sort: :desc, id: :desc)&.first&.id), class: "nav-link active" %>
+      <% else %>
+        <%= link_to section.name, section_path(section, category: section.nodes.order(sort: :desc, id: :desc)&.first&.id), class: "nav-link " %>
+      <% end %>
     </li>
-  <%# end %>
-  -->
+  <% end %>
 </ul>
