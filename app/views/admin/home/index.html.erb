@@ -37,41 +37,6 @@
       </div>
     </div>
 
-    <div class="col-sm-4" id="reply-stat">
-      <div class="stat">
-        <div class="total">0</div>
-        <div class="name">
-          回帖总数
-          <span class="total-week" rel="twipsy" title="本周新增">+0</span>
-          <span class="total-month" rel="twipsy" title="本月新增">+0</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3" id="notification-stat">
-      <div class="stat">
-        <div class="total">0</div>
-        <div class="name">
-          通知总数
-          <span class="total-week" rel="twipsy" title="本周新增">+0</span>
-          <span class="total-month" rel="twipsy" title="本月新增">+0</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-3" id="comment-stat">
-      <div class="stat">
-        <div class="total">0</div>
-        <div class="name">
-          评论总数
-          <span class="total-week" rel="twipsy" title="本周新增">+0</span>
-          <span class="total-month" rel="twipsy" title="本月新增">+0</span>
-        </div>
-      </div>
-    </div>
-
-
     <div class="col-sm-3" id="photo-stat">
       <div class="stat">
         <div class="total">0</div>
@@ -92,7 +57,7 @@
       el.find(".total-month").text('+' + data.month_count);
     }
 
-    var models = ['user', 'topic', 'reply', 'note', 'notification', 'photo', 'comment'];
+    var models = ['user', 'topic', 'note', 'photo'];
     for (var i = 0; i < models.length; i ++) {
       var model = models[i];
       $.get("/admin/stats?model="+ model +"&by=month", function(data) {

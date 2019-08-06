@@ -47,6 +47,7 @@ gem 'mini_magick', '~> 4.9', '>= 4.9.5', require: false
 # upload pluge
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 gem 'letter_avatar', '~> 0.3.7'
+gem 'fog-aws', '~> 3.5', '>= 3.5.2'
 
 # Form select 选项
 gem 'form-select', '~> 0.3.2'

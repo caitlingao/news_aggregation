@@ -62,16 +62,6 @@ module Admin
       redirect_to(admin_topics_path)
     end
 
-    def suggest
-      @topic.update_attribute(:suggested_at, Time.now)
-      redirect_to(admin_topics_path)
-    end
-
-    def unsuggest
-      @topic.update_attribute(:suggested_at, nil)
-      redirect_to(admin_topics_path)
-    end
-
     def action
       case params[:type]
       when "excellent"
@@ -80,16 +70,6 @@ module Admin
       when "normal"
         @topic.normal!
         redirect_to admin_topics_path, notice: "话题已恢复到普通评级。"
-      when "ban"
-        params[:reason_text] ||= params[:reason] || ""
-        @topic.ban!(reason: params[:reason_text].strip)
-        redirect_to admin_topic_path, notice: "话题已放进屏蔽栏目。"
-      when "close"
-        @topic.close!
-        redirect_to admin_topic_path, notice: "话题已关闭，将不再接受任何新的回复。"
-      when "open"
-        @topic.open!
-        redirect_to admin_topic_path, notice: "话题已重启开启。"
       end
     end
 

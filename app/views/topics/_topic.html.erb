@@ -1,4 +1,4 @@
-<% cache([topic, topic.user_avatar_raw]) do %>
+<% cache([topic]) do %>
   <div class="topic media topic-<%= topic.id %>">
     <div class="form-group avatar-preview">
       <%= topic_banner_tag(topic, :lg) %>

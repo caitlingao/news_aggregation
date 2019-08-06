@@ -39,6 +39,7 @@ Rails.application.routes.draw do
       end
     end
     resources :photos
+    resources :stats
   end
 
   # WARRING! 请保持 User 的 routes 在所有路由的最后，以便于可以让用户名在根目录下面使用，而又不影响到其他的 routes
