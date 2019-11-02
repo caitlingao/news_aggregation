@@ -30,7 +30,7 @@ gem 'rails-i18n', '~> 5.1', '>= 5.1.3'
 gem "bulk_insert"
 
 # User system
-gem 'devise', '~> 4.6', '>= 4.6.2'
+gem 'devise', '~> 4.7'
 
 # page
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
