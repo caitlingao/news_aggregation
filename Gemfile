@@ -33,7 +33,7 @@ gem "bulk_insert"
 gem 'devise', '~> 4.6', '>= 4.6.2'
 
 # page
-gem 'kaminari', '~> 1.1', '>= 1.1.1'
+gem 'kaminari', '~> 1.2'
 
 # soft delete
 gem 'paranoia', '~> 2.4', '>= 2.4.2'
