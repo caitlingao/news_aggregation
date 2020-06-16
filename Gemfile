@@ -70,7 +70,7 @@ gem "auto-space"
 gem "html-pipeline"
 gem "html-pipeline-rouge_filter"
 gem "redcarpet"
-gem 'sanitize', '~> 5.0'
+gem 'sanitize', '~> 5.2'
 
 # 搜索
 gem "elasticsearch-model", "~> 5.0.2"
