@@ -41,7 +41,7 @@ gem 'paranoia', '~> 2.4', '>= 2.4.2'
 gem 'mini_magick', '~> 4.9', '>= 4.9.5', require: false
 
 # upload pluge
-gem 'carrierwave', '~> 1.3', '>= 1.3.1'
+gem 'carrierwave', '~> 1.3'
 gem 'letter_avatar', '~> 0.3.7'
 
 gem 'carrierwave-qiniu', '~> 1.1', '>= 1.1.6'
